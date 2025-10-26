@@ -172,7 +172,32 @@ single_color_green = ['green'] # Список с единственной стр
 
 <img src="images/df_year_2.png" alt="df_year_2.png" height="320"/> 
 
+Блок кода: 
+```python
+df_vg_year = (df_vg.groupby('Year', as_index=False)[['NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales']].sum().sort_values(by='Global_Sales', ascending=False))
 
+df_vg_year = df_vg_year[df_vg_year['Year'] != 0]
+
+df_vg_year['sales_threshold'] = np.where(df_vg_year['Global_Sales'] > 300000000, 'Above_Threshold', 'Below_Threshold')
+df_vg_year_palette = {'Above_Threshold' : 'green',
+                      'Below_Threshold' : 'red'}
+
+fig4, ax4 = plt.subplots(figsize=(9,3))
+sns.barplot(df_vg_year, x="Year", y="Global_Sales", hue = "sales_threshold", palette = df_vg_year_palette, legend = False)
+ax4.yaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+ax4.set_xticks(np.arange(0, 37,5))
+plt.rcParams.update({'font.size': 10,
+                     'axes.titlesize': 15,
+                     'axes.labelsize': 10,
+                     'xtick.labelsize': 8,
+                     'ytick.labelsize': 8})
+
+ax4.set(xlabel = None)
+ax4.set(ylabel = 'Копий продано')
+
+plt.title('Продажи видеоигр 1980-2017 г. \n \n Основной пик продаж игр пришелся на 2000-2014 год, \n далее рынок платных видеоигр пошел на спад. \n', fontsize=11)
+```
 ## 2. Какие игровые консоли наиболее прибыльны? Каков общий тренд их актуальности на рынке?
 
 
