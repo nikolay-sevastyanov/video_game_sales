@@ -126,6 +126,7 @@ single_color_green = ['green'] # Список с единственной стр
 ```
 
 6. Преобразование данных, обработка пропусков, удаление дубликатов.
+   
    1. Преобразование данных   
    ```python
    # Столбцы "NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales", "Global_Sales" преобразуем из числа с 2 значениями после запятой в целочисленные значения, помножив их на 1 000 000 и изменяя тип данных внутри таблицы на int (целочисленные значения)
@@ -150,8 +151,15 @@ single_color_green = ['green'] # Список с единственной стр
    
    df_vg = df_vg.drop_duplicates()
    ```
-   
-df_vg = df_vg.drop_duplicates()
+   При выводе таблицы ```df_vg.head()```, должен быть такой результат:
+   ```
+      Rank                      Name Platform    Year         Genre Publisher  NA_Sales  EU_Sales  JP_Sales  Other_Sales  Global_Sales
+   0     1                Wii Sports      Wii  2006.0        Sports  Nintendo  41490000  29020000   3770000      8460000      82740000
+   1     2         Super Mario Bros.      NES  1985.0      Platform  Nintendo  29080000   3580000   6810000       770000      40240000
+   2     3            Mario Kart Wii      Wii  2008.0        Racing  Nintendo  15850000  12880000   3790000      3310000      35820000
+   3     4         Wii Sports Resort      Wii  2009.0        Sports  Nintendo  15750000  11010000   3280000      2960000      33000000
+   4     5  Pokemon Red/Pokemon Blue       GB  1996.0  Role-Playing  Nintendo  11270000   8890000  10220000      1000000      31370000
+   ```
 ## 1. Что просходит с рынком видеоигр на данный момент?
 
 
