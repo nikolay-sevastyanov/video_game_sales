@@ -1,5 +1,7 @@
 # Анализ продаж видеоигр 1980-2017 г.
+
 <img src="images/df_year_genre_global_dist.png" alt="df_year_genre_global_dist.png" width="320"/> <img src="images/df_vg_regions_year_2.png" alt="df_vg_regions_year_2.png" width="380"/>
+
 
 ## Краткое содержание
 Прочитав много новостей про то, как рынок видеоигр является слишком дорогим по сравнению с удовольствием, которое эти игры приносят, я решил найти реальную информацию по продажам видеоигр и ответить на конкретные вопрсосы:
@@ -15,124 +17,195 @@
 
 ## 1. Что просходит с рынком видеоигр на данный момент?
 
+
 На данный момент рынок платных видеоигр уменьшается. Основной пик продаж (выше 300 миллионов копий в год) пришелся на 2000-2014г.
+
 <img src="images/df_year_2.png" alt="df_year_2.png" height="320"/> 
+
 
 ## 2. Какие игровые консоли наиболее прибыльны? Каков общий тренд их актуальности на рынке?
 
+
 PS2 - наиболее прибьльная консоль за все время. Аркадные, позволяющие играть в кооперативе, консоли собираюют больше продаж, чем остальные.
+
 <img src="images/vg_platform_3.png" alt="vg_platform_3.png" width="320"/> <img src="images/vg_platform_4.png" alt="vg_platform_4.png" width="325"/>
 
+
 Пик продаж игр на консоль происходит в течение 5 лет после ее выхода на рынок.
+
 <img src="images/df_year_platform_1.png" alt="df_year_platform_1.png" height="300"/>
 
+
 Наиболее успешная пара "жанр - платформа" - "PS3 - "Экшн" "
+
 <img src="images/df_platform_genre.png" alt="df_platform_genre.png" height="320"/>
+
 
 ## 3. В чем основные отличия целевых аудиторий разных стран? Какие жанры игр они предпочитают?
 
 ### Глобальные тренды 
 
+
 В Японии самый популярный жанр видеоигр - "RPG". В остальном мире - "экшн"
+
 <img src="images/df_vg_max_genre.png" alt="df_vg_max_genre.png" height="370"/>
+
 
 ### Жанры в регионах
 
+
 В мировых масштабах преобладает и растет доля жанров игр: "экшн", "спорт", "головоломка". Снижается даля жанров "платформер", "стратегия", "головоломка".
+
 <img src="images/df_year_genre_na_dist_1.png" alt="df_year_genre_na_dist_1.png" height="320"/>
+
 
 ### Тренды Северной Америки 
 
+
 В Северной Америке тренды жанров схожи с глобальными.
+
 <img src="images/df_year_genre_na_dist_1.png" alt="df_year_genre_na_dist_1.png" height="320"/>
+
 
 ### Тренды Европы  
 
+
 В Европе тренды жанров схожи с глобальными, на слегка увеличен спрос на игры жанра "гонки".
+
 <img src="images/df_year_genre_eu_dist_1.png" alt="df_year_genre_eu_dist_1.png" height="320"/>
+
 
 ### Тренды Японии
 
+
 В Японии тренды жанров схожи с глобальными, но жанром топ-1 является "RPG".
+
 <img src="images/df_year_genre_jp_dist_1.png" alt="df_year_genre_jp_dist_1.png" height="320"/>
+
 
 ### Тренды остальных регионов
 
+
 В остальных регионах тренды жанров  схожи с глобальными.
+
 <img src="images/df_year_genre_other_dist_1.png" alt="df_year_genre_other_dist_1.png" height="320"/>
+
 
 ## 4. Какие игровые консоли наиболее ценны для потребителей с точки зрения цена-качество?
 
+
 Для геймеров наилучшее цена-качество у платформ Nintendo DS и PC.
+
 <img src="images/df_platform_use_1.png" alt="df_platform_use_1.png" height="320"/>
+
 
 ## 5. Какие издатели имеют наибольшее влияние на развитие рынка видеоигр?
 
+
 Самый успешный издатель всех времен - Nintendo
+
 <img src="images/df_publishers_3.png" alt="df_publishers_3.png" height="305"/>
+
 
 Рынок платных видеоигр сильно консолидирован.
 5 самых успешных издателей имеют долю рынка 51%
+
 <img src="images/df_publishers_4.png" alt="df_publishers_4.png" height="320"/>
 
+
 В Севарной Америке, Японии и Европе самый успешный издатель за 1980-2017 г. - Nintendo. В остальных регионах - Electronic Arts.
+
 <img src="images/df_max_market_cap_1.png" alt="images/df_max_market_cap_1.png" height="320"/>
+
 
 ## 6. Какие жанры имеют наибольшее влияние на развитие рынка видеоигр?
 
+
 Самый успешный жанр в мире - "экшн"
+
 <img src="images/vg_genre_2.png" alt="vg_genre_2.png" height="320"/>
+
 
 ## 7. Какая целевая аудитория имеют наибольшее влияние на развитие рынка видеоигр?
 
+
 За 1980-2017 г. наибольший объем продаж копий видеоигр произошел в Северной Америке.
+
 <img src="images/df_vg_regions.png" alt="df_vg_regions.png" height="320"/>
+
 
 ## 8. Какие отдельные видеоигры оказали наибольшее влияние на рынок?
 
 ### Общие продажи
 
+
 Самая продаваемая игра по числу копий - Wii Sports. Феномен Wii Sports нужно изучить глубже, чтобы исплользовать знания для продвижения и разработки игр в будущем. 
+
 <img src="images/df_vg_game_global_0.png" alt="df_vg_game_global_0.png" height="320"/>
 
+
+
 3 из 10 самых продаваемых игр по числу копий - эксклюзивы для Wii.
+
 <img src="images/df_vg_game_global_1.png" alt="df_vg_game_global_1.png" height="320"/>
 
+
 3 из 10 самых продаваемых игр по числу копий - игры по франшизе Super Mario.
+
 <img src="images/df_vg_game_global_2.png" alt="df_vg_game_global_2.png" height="320"/>
 
+
 2 из 10 самых продаваемых игр по числу копий - игры по франшизе Call of Duty.
+
 <img src="images/df_vg_game_global_3.png" alt="df_vg_game_global_3.png" height="320"/>
 
+
 6 из 10 самых продаваемых игр по числу копий - игры издателя Nintendo.
+
 <img src="images/df_vg_game_global_4.png" alt="df_vg_game_global_4.png" height="320"/>
+
 
 ### Продажи в Северной Америке
 
+
 Рынок Северной Америки почти не отличается от глабального.
+
 <img src="images/df_vg_game_na_1.png" alt="df_vg_game_na_1.png" height="320"/>
+
 
 ### Продажи в Европе
 
+
 3 из них - игры франшизы FIFA.
+
 <img src="images/df_vg_game_eu_1.png" alt="df_vg_game_eu_1.png" height="320"/>
 
+
 5 из них - игры жанра "спорт".
+
 <img src="images/df_vg_game_eu_2.png" alt="df_vg_game_eu_2.png" height="320"/>
+
 
 ### Продажи в Японии
 
+
 5 из них - игры франшизы Pokemon.
+
 <img src="images/df_vg_game_jp_1.png" alt="df_vg_game_jp_1.png" height="320"/>
 
+
 8 из них - игры издателя Nintendo.
+
 <img src="images/df_vg_game_jp_2.png" alt="df_vg_game_jp_2.png" height="320"/>
 
+
 ## Продажи в остальных регионах
+
 
 2 из них - игры серии Grand Theft Auto.
 
 <img src="images/df_vg_game_other_1.png" alt="df_vg_game_other_1.png" height="320"/>
+
 
 1 из них - Grand Turismo, игра жанра "гонки".
 
