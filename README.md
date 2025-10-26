@@ -104,7 +104,7 @@ df_vg = pd.read_csv('vgsales.csv') # читаем .csv в папке проек�
 ```python
 print(df_vg.head()) # выводим первые 5 строк таблицы "df_vg"
 ```
-вывод должен выглядеть так:
+Вывод должен выглядеть так:
 ```
    Rank                      Name Platform    Year         Genre Publisher  NA_Sales  EU_Sales  JP_Sales  Other_Sales  Global_Sales
 0     1                Wii Sports      Wii  2006.0        Sports  Nintendo  41490000  29020000   3770000      8460000      82740000
