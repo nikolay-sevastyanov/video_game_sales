@@ -103,3 +103,8 @@ PS2 - наиболее прибьльная консоль за все врем�
 <img src="images/df_vg_regions.png" alt="df_vg_regions.png" height="320"/>
 
 ## 8. Какие отдельные видеоигры оказали наибольшее влияние на рынок?
+
+<img src="images/df_vg_game_global_1.png" alt="df_vg_game_global_1.png" height="320"/>
+<img src="images/df_vg_game_global_2.png" alt="df_vg_game_global_2.png" height="320"/>
+<img src="images/df_vg_game_global_3.png" alt="df_vg_game_global_3.png" height="320"/>
+<img src="images/df_vg_game_global_4.png" alt="df_vg_game_global_4.png" height="320"/>
