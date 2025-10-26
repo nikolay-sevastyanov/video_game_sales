@@ -158,7 +158,7 @@ single_color_green = ['green'] # Список с единственной стр
    ```
    При выводе таблицы ```df_vg.head()```, должен быть такой результат:
    ```
-   Rank                      Name    Platform  Year         Genre Publisher  NA_Sales  EU_Sales  JP_Sales  Other_Sales  Global_Sales
+      Rank                      Name Platform  Year         Genre Publisher  NA_Sales  EU_Sales  JP_Sales  Other_Sales  Global_Sales
    0     1                Wii Sports      Wii  2006        Sports  Nintendo  41490000  29020000   3770000      8460000      82740000
    1     2         Super Mario Bros.      NES  1985      Platform  Nintendo  29080000   3580000   6810000       770000      40240000
    2     3            Mario Kart Wii      Wii  2008        Racing  Nintendo  15850000  12880000   3790000      3310000      35820000
