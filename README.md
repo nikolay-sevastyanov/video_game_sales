@@ -74,8 +74,37 @@
 
 <img src="images/vg_data_structure.png" alt="vg_data_structure" height="320"/> 
 
+### Код для подготовки данных:
+1. Импортирование библиотек
+   
+```python
+import pandas as pd # импортируем pandas с ключевым словом pd
+import matplotlib.pyplot as plt # импортируем matplotlib.pyplot с ключевым словом plt (функции визуализации matplotlib, зависимость для других функций)
+import matplotlib.ticker as mticker # импортируем matplotlib.ticker с ключевым словом mticker (функции визуализации matplotlib для осей графиков, зависимость для других функций)
+from matplotlib.ticker import FuncFormatter # импортируем FuncFormatter (функции изменения отображаемого формата для данных осей графиков matplotlib, зависимость для других функций)
+import numpy as np # импортируем numpy с ключевым словом np (числовые массивы, требующие меньше вычислительных мощностей)
+import seaborn as sns # импортируем seaborn с ключевым словом sns (для визуализации)
+```
 
- 
+2. Установка опций по умолчанию для pandas
+
+```python
+pd.set_option('display.max_columns', None) # при отображении таблицы макимальное кол-во столбцов отключено
+pd.set_option('display.max_rows', None) # при отображении таблицы макимальное кол-во строк отключено
+pd.set_option('display.width', 3000) # при отображении таблицы кол-во пикселей для отображения по ширине - 3000
+```
+
+3. Чтение данных из .csv - файла (таблицы)
+
+```python
+df_vg = pd.read_csv('vgsales.csv') # читаем .csv в папке проекта с помощью pandas, декларируем этот датафрейм (таблицу pandas) как "df_vg"
+```
+
+4. Проверка чтения таблицы 
+```python
+print(df_vg.head()) # выводим первые 5 строк таблицы "df_vg"
+```
+
 ## 1. Что просходит с рынком видеоигр на данный момент?
 
 
