@@ -131,3 +131,9 @@ PS2 - наиболее прибьльная консоль за все врем�
 Рынок Северной Америки почти не отличается от глабального.
 
 <img src="images/df_vg_game_na_1.png" alt="df_vg_game_na_1.png" height="320"/>
+
+### Продажи в Европе
+<img src="images/df_vg_game_eu_1.png" alt="df_vg_game_eu_1.png" height="320"/>
+<img src="images/df_vg_game_eu_2.png" alt="df_vg_game_eu_2.png" height="320"/>
+<img src="images/df_vg_game_eu_3.png" alt="df_vg_game_eu_3.png" height="320"/>
+
