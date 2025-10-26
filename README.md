@@ -249,11 +249,11 @@ for i, patch in enumerate(ax3.patches):
 ax3.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
 
 # Настраеваем график по умолчанию
-plt.rcParams.update({'font.size': 10,          # General font size
-                     'axes.titlesize': 8,    # Title font size
-                     'axes.labelsize': 8,     # X and Y label font size
-                     'xtick.labelsize': 8,    # X-axis tick label font size
-                     'ytick.labelsize': 8})   # Y-axis tick label font size
+plt.rcParams.update({'font.size': 10,        
+                     'axes.titlesize': 8,   
+                     'axes.labelsize': 8,   
+                     'xtick.labelsize': 8,  
+                     'ytick.labelsize': 8})
 
 # Передаем названия осей x и y
 ax3.set(xlabel = 'Копий продано')
