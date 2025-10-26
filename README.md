@@ -22,11 +22,11 @@
 
 PS2 - наиболее прибьльная консоль за все время. Аркадные, позволяющие играть в кооперативе, консоли собираюют больше продаж, чем остальные.
 
-<img src="images/vg_platform_3.png" alt="vg_platform_3.png" width="320"/> <img src="images/vg_platform_4.png" alt="dvg_platform_4.png" width="325"/>
+<img src="images/vg_platform_3.png" alt="vg_platform_3.png" width="320"/> <img src="images/vg_platform_4.png" alt="vg_platform_4.png" width="325"/>
 
 Пик продаж игр на консоль происходит в течение 5 лет после ее выхода на рынок.
 
-<img src="images/df_year_platform_1.png" alt="vg_platform_3.png" width="320"/> <img src="df_year_platform_1.png" alt="dvg_platform_4.png" width="325"/>
+<img src="images/df_year_platform_1.png" alt="vg_platform_3.png" width="320"/> <img src="df_year_platform_1.png" alt="vg_platform_4.png" width="325"/>
 
 
 ## 3. В чем основные отличия целевых аудиторий разных стран? Какие жанры игр они предпочитают?
