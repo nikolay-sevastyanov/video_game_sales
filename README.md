@@ -140,7 +140,7 @@ single_color_green = ['green'] # Список с единственной стр
    # Столбцы "NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales", "Global_Sales" преобразуем из числа с 2 значениями после запятой в целочисленные значения,
    # помножив их на 1 000 000 и изменяя тип данных внутри таблицы на int (целочисленные значения)
 
-   # Столбцу 'Year' изменим тип данных из float(0) в int
+   # Столбцу 'Year' изменим тип данных из float(1) в int
    
    df_vg['NA_Sales'] = (df_vg['NA_Sales'] * 1000000).astype(int)
    df_vg['EU_Sales'] = (df_vg['EU_Sales'] * 1000000).astype(int)
