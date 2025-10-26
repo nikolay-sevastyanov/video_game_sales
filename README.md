@@ -294,7 +294,6 @@ plt.rcParams.update({'font.size': 10,          # General font size
                      'xtick.labelsize': 8,    # X-axis tick label font size
                      'ytick.labelsize': 8})   # Y-axis tick label font size
 
-
 # Передаем названия осей x и y
 ax31.set(xlabel = 'Копий продано')
 ax31.set(ylabel = None)
