@@ -1,7 +1,12 @@
 # Анализ продаж видеоигр 1980-2017 г.
 
 ## Датасет: [Video Game Sales](https://www.kaggle.com/datasets/gregorut/videogamesales)
-## Инструменты: Python (как основной инструмент), Numpy (для числовых массивов), Pandas (для таблиц), Seaborn (для визуализации), draw.io (для диаграммы данных). 
+### Инструменты: 
+1. Python (как основной инструмент),
+2. Numpy (для числовых массивов),
+3. Pandas (для таблиц),
+4. Seaborn (для визуализации),
+5. draw.io (для диаграммы данных). 
 
 <img src="images/df_year_genre_global_dist.png" alt="df_year_genre_global_dist.png" width="320"/> <img src="images/df_vg_regions_year_2.png" alt="df_vg_regions_year_2.png" width="380"/>
 
