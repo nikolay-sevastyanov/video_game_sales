@@ -69,6 +69,6 @@ PS2 - наиболее прибьльная консоль за все врем�
 
 ## 5. Какие издатели имеют наибольшее влияние на развитие рынка видеоигр?
 
-<img src="images/df_platforms_3.png" alt="df_platform_use_3.png" height="320"/>
-<img src="images/df_platforms_4.png" alt="df_platform_use_4.png" height="320"/>
+<img src="images/df_platforms_3.png" alt="df_platforms_3.png" height="320"/>
+<img src="images/df_platforms_4.png" alt="df_platforms_4.png" height="320"/>
 
