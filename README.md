@@ -56,7 +56,7 @@
 
 ## Диаграмма анализа
 
-<img src="images/vg_data_structure.png" alt="vg_data_structure" width="320"/> 
+<img src="images/vg_data_structure.png" alt="vg_data_structure" height="320"/> 
  
 ## 1. Что просходит с рынком видеоигр на данный момент?
 
