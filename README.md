@@ -145,5 +145,5 @@ PS2 - наиболее прибьльная консоль за все врем�
 
 5 из них - игры франшизы Pokemon.
 
-<img src="images/df_vg_game_eu_3.png" alt="df_vg_game_eu_3.png" height="320"/>
+<img src="images/df_vg_game_jp_1.png" alt="df_vg_game_jp_1.png" height="320"/>
 
