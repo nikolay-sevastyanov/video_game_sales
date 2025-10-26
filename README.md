@@ -224,6 +224,88 @@ PS2 - наиболее прибьльная консоль за все врем�
 
 <img src="images/vg_platform_3.png" alt="vg_platform_3.png" width="320"/> <img src="images/vg_platform_4.png" alt="vg_platform_4.png" width="325"/>
 
+Блок кода (1): 
+```python
+# Группируем значения сумм столбцов 'NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales' по значения столбца 'Platform', затем сортируем по 'Global_Sales', по убывающей, назовем этот датафрейм "df_vg_platform"
+df_vg_platform = (df_vg.groupby('Platform', as_index=False)[['NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales']].sum().sort_values(by='Global_Sales', ascending=False))
+
+# Оставляем строки, где в df_vg_platform значения 'Global_Sales' > 50000000, остальное удаляем. Называем датафрейм - "df_vg_platform_filtered"
+df_vg_platform_filtered = df_vg_platform[df_vg_platform['Global_Sales']>50000000]
+
+# Создаем холст с разрешением 500х500 пикселей
+fig3, ax3 = plt.subplots(figsize=(5,5))
+
+# Создаем столбчатую диаграмм (barplot), передаем в нее первые 10 строк df_vg_platform_filtered, ось x - "Global_Sales", ось y y="Platform", тип - горизонтальная стобчатая диаграмма (orient='h')
+sns.barplot(df_vg_platform_filtered.head(10), x="Global_Sales", y="Platform", orient='h')
+
+# Создаем функцию покраски столбцов: принимаем на вход список из названий цветов, красим столбцы по порядку. Если не передано достаточно названий цветов, красим в серый цвет.
+# В этот график передаем только один зеленый цвет.
+for i, patch in enumerate(ax3.patches):
+    if i < len(single_color_green):
+        patch.set_facecolor(single_color_green[i])
+    else:
+        patch.set_facecolor('gray')
+
+# Форматируем ось x (100 000 000 -> 100 M)
+ax3.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+# Настраеваем график по умолчанию
+plt.rcParams.update({'font.size': 10,          # General font size
+                     'axes.titlesize': 8,    # Title font size
+                     'axes.labelsize': 8,     # X and Y label font size
+                     'xtick.labelsize': 8,    # X-axis tick label font size
+                     'ytick.labelsize': 8})   # Y-axis tick label font size
+
+# Передаем названия осей x и y
+ax3.set(xlabel = 'Копий продано')
+ax3.set(ylabel = None)
+
+# Передаем название холста
+plt.title('Продажи видеоигр по платформам (консолям), 1980-2017 г. \n Самая успешная платформа (консоль) -  PS2. \n', fontsize=11)
+
+# Показываем холст
+plt.show()
+```
+
+Блок кода (2): 
+```python
+# Создаем холст с разрешением 500х500 пикселей
+fig31, ax31 = plt.subplots(figsize=(5,5))
+
+# Создаем визуализацию. Здесь используем раннее визуализированный датафрейм, просто на этом холсте он будет показан слегка по другому.
+sns.barplot(df_vg_platform_filtered.head(10), x="Global_Sales", y="Platform", orient='h')
+
+# Создаем уникальный список с 6 зелеными цветами, так как требуется покрасить первые 6 столбцов
+six_colors_green = ['green','green','green','green','green','green']
+
+# Создаем функцию покраски, передаем уникальный список
+for i, patch in enumerate(ax31.patches):
+    if i < len(six_colors_green):
+        patch.set_facecolor(six_colors_green[i])
+    else:
+        # Handle cases where there are more bins than custom colors
+        patch.set_facecolor('gray')
+
+# Форматируем ось x (100 000 000 -> 100 M)
+ax31.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+plt.rcParams.update({'font.size': 10,          # General font size
+                     'axes.titlesize': 8,    # Title font size
+                     'axes.labelsize': 8,     # X and Y label font size
+                     'xtick.labelsize': 8,    # X-axis tick label font size
+                     'ytick.labelsize': 8})   # Y-axis tick label font size
+
+
+# Передаем названия осей x и y
+ax31.set(xlabel = 'Копий продано')
+ax31.set(ylabel = None)
+
+# Передаем название холста
+plt.title('Продажи видеоигр по платформам (консолям), 1980-2017 г. \n \n Аркадные (социальные) консоли являются самыми успешными. \n', fontsize=11)
+
+# Показываем холст
+plt.show()
+```
 
 Пик продаж игр на консоль происходит в течение 5 лет после ее выхода на рынок.
 
