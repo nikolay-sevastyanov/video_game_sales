@@ -1,6 +1,6 @@
 # Анализ продаж видеоигр 1980-2017 г.
 
-## Датасет: [Video Game Sales]([https://www.google.com](https://www.kaggle.com/datasets/gregorut/videogamesales)
+## Датасет: [Video Game Sales](https://www.kaggle.com/datasets/gregorut/videogamesales)
 
 <img src="images/df_year_genre_global_dist.png" alt="df_year_genre_global_dist.png" width="320"/> <img src="images/df_vg_regions_year_2.png" alt="df_vg_regions_year_2.png" width="380"/>
 
