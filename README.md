@@ -112,8 +112,6 @@ print(df_vg.head()) # выводим первые 5 строк таблицы "d
 2     3            Mario Kart Wii      Wii  2008.0        Racing  Nintendo     15.85     12.88      3.79         3.31         35.82
 3     4         Wii Sports Resort      Wii  2009.0        Sports  Nintendo     15.75     11.01      3.28         2.96         33.00
 4     5  Pokemon Red/Pokemon Blue       GB  1996.0  Role-Playing  Nintendo     11.27      8.89     10.22         1.00         31.37
-
-
 ```
 
 5. Создание функций (мое предпочтение, необязательное действие)
@@ -166,8 +164,6 @@ single_color_green = ['green'] # Список с единственной стр
    2     3            Mario Kart Wii      Wii  2008        Racing  Nintendo  15850000  12880000   3790000      3310000      35820000
    3     4         Wii Sports Resort      Wii  2009        Sports  Nintendo  15750000  11010000   3280000      2960000      33000000
    4     5  Pokemon Red/Pokemon Blue       GB  1996  Role-Playing  Nintendo  11270000   8890000  10220000      1000000      31370000
-
-
    ```
 ## 1. Что просходит с рынком видеоигр на данный момент?
 
