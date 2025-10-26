@@ -132,9 +132,9 @@ PS2 - наиболее прибьльная консоль за все врем�
 
 2 из них - игры серии Grand Theft Auto.
 
-<img src="images/df_vg_pther_1.png" alt="df_vg_game_other_1.png" height="320"/>
+<img src="images/df_vg_other_1.png" alt="df_vg_game_other_1.png" height="320"/>
 
 1 из них - Grand Turismo, игра жанра "гонки".
 
-<img src="images/df_vg_pther_2.png" alt="df_vg_game_other_2.png" height="320"/>
+<img src="images/df_vg_other_2.png" alt="df_vg_game_other_2.png" height="320"/>
 
