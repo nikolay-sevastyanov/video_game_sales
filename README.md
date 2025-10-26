@@ -29,24 +29,24 @@ PS2 - наиболее прибьльная консоль за все врем�
 ### Глобальные тренды 
 В мировых масштабах преобладает и растет доля жанров игр: "экшн", "спорт", "головоломка". Снижается даля жанров "платформер", "стратегия", "головоломка".
 
-<img src="images/df_year_genre_global_dist_1.png" alt="df_year_genre_global_dist_1.png" width="320"/>
+<img src="images/df_year_genre_global_dist_1.png" alt="df_year_genre_global_dist_1.png" height="320"/>
 
 ### Тренды Северной Америки 
 В Северной Америке тренды жанров схожи с глобальными.
 
-<img src="images/df_year_genre_na_dist_1.png" alt="df_year_genre_na_dist_1.png" width="320"/>
+<img src="images/df_year_genre_na_dist_1.png" alt="df_year_genre_na_dist_1.png" height="320"/>
 
 ### Тренды Европы  
 В Европе тренды жанров схожи с глобальными, на слегка увеличен спрос на игры жанра "гонки".
 
-<img src="images/df_year_genre_eu_dist_1.png" alt="df_year_genre_eu_dist_1.png" width="320"/>
+<img src="images/df_year_genre_eu_dist_1.png" alt="df_year_genre_eu_dist_1.png" height="320"/>
 
 ### Тренды Японии
 В Японии тренды жанров схожи с глобальными, но жанром топ-1 является "RPG".
 
-<img src="images/df_year_genre_jp_dist_1.png" alt="df_year_genre_jp_dist_1.png" width="320"/>
+<img src="images/df_year_genre_jp_dist_1.png" alt="df_year_genre_jp_dist_1.png" height="320"/>
 
 ### Тренды остальных регионов
 В остальных регионах тренды жанров  схожи с глобальными.
 
-<img src="images/df_year_genre_other_dist_1.png" alt="df_year_genre_other_dist_1.png" width="320"/>
+<img src="images/df_year_genre_other_dist_1.png" alt="df_year_genre_other_dist_1.png" height="320"/>
