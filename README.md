@@ -300,11 +300,14 @@ PS2 - наиболее прибьльная консоль за все врем�
 
 <img src="images/df_publishers_3.png" alt="df_publishers_3.png" height="305"/>
 
+<img src="images/df_publishers_5.png" alt="df_publishers_5.png" height="320"/>
 
 Рынок платных видеоигр сильно консолидирован.
 5 самых успешных издателей имеют долю рынка 51%
 
 <img src="images/df_publishers_4.png" alt="df_publishers_4.png" height="320"/>
+
+<img src="images/df_publishers_6.png" alt="df_publishers_6.png" height="320"/>
 
 
 В Северной Америке, Японии и Европе самый успешный издатель за 1980-2017 г. - Nintendo. В остальных регионах - Electronic Arts.
