@@ -195,7 +195,6 @@ fig4, ax4 = plt.subplots(figsize=(9,3))
 # Задать тип и настройки визуализации:
 # Тип - barplot (столбчатая диаграмма), ось x - "Year", ось y - "Global_Sales", покраска зависит от признака "sales_threshold",
 # Палитра - df_vg_year_palette (красный и зеленый по признаку), легенда (описание цветов) - отключить
-
 sns.barplot(df_vg_year, x="Year", y="Global_Sales", hue = "sales_threshold", palette = df_vg_year_palette, legend = False)
 
 # Передать форматирование значений оси y как краткое форматирование (100 000 000 -> 100 M)
@@ -289,6 +288,7 @@ for i, patch in enumerate(ax31.patches):
 # Форматируем ось x (100 000 000 -> 100 M)
 ax31.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
 
+# Настраеваем график по умолчанию
 plt.rcParams.update({'font.size': 10,          # General font size
                      'axes.titlesize': 8,    # Title font size
                      'axes.labelsize': 8,     # X and Y label font size
