@@ -133,7 +133,17 @@ PS2 - наиболее прибьльная консоль за все врем�
 <img src="images/df_vg_game_na_1.png" alt="df_vg_game_na_1.png" height="320"/>
 
 ### Продажи в Европе
+
+### 3 из них - игры франшизы FIFA.
+
 <img src="images/df_vg_game_eu_1.png" alt="df_vg_game_eu_1.png" height="320"/>
+
+
+### 5 из них - игры жанра "спорт".
+
 <img src="images/df_vg_game_eu_2.png" alt="df_vg_game_eu_2.png" height="320"/>
+
+### 5 из них - игры франшизы Pokemon.
+
 <img src="images/df_vg_game_eu_3.png" alt="df_vg_game_eu_3.png" height="320"/>
 
