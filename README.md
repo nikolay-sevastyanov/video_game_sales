@@ -282,7 +282,6 @@ for i, patch in enumerate(ax31.patches):
     if i < len(six_colors_green):
         patch.set_facecolor(six_colors_green[i])
     else:
-        # Handle cases where there are more bins than custom colors
         patch.set_facecolor('gray')
 
 # Форматируем ось x (100 000 000 -> 100 M)
