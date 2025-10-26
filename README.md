@@ -1,5 +1,5 @@
 # Анализ продаж видеоигр 1980-2017 г.
-<img src="images/df_year_genre_global_dist.png" alt="df_year_genre_global_dist.png" width="350"/> <img src="images/df_vg_regions_year.png" alt="df_vg_regions_year.png" width="650"/>
+<img src="images/df_year_genre_global_dist.png" alt="df_year_genre_global_dist.png" width="350"/> <img src="images/df_vg_regions_year_1.png" alt="df_vg_regions_year_1.png" width="650"/>
 
 ## Краткое содержание
 Прочитав много новостей про то, как рынок видеоигр является слишком дорогим по сравнению с удовольствием, которое эти игры приносят, я решил найти реальную информацию по продажаи видеоигр и ответить на конкретные вопрсосы:
