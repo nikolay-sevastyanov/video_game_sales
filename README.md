@@ -174,28 +174,47 @@ single_color_green = ['green'] # Список с единственной стр
 
 Блок кода: 
 ```python
+# 1. Сгруппировать суммы 'NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales' по значениям столбца 'Year' (продажи по годам)
+# 2. Полученные данные задекларировать как датафрейм df_vg_year
+# 3. Отсортировать полученную таблицу по 'Global_Sales' по убывающей
 df_vg_year = (df_vg.groupby('Year', as_index=False)[['NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales']].sum().sort_values(by='Global_Sales', ascending=False))
 
+# Удалить нулевые значения "Year", так как здесь они бесполезны
 df_vg_year = df_vg_year[df_vg_year['Year'] != 0]
 
+# Создать вычисляемый столбец, который разделит большие значения "Global_Sales" от маленьких по признаку 'Above_Threshold' для больших, 'Below_Threshold' для меньших
 df_vg_year['sales_threshold'] = np.where(df_vg_year['Global_Sales'] > 300000000, 'Above_Threshold', 'Below_Threshold')
+
+# Создать палитру (словарь), которая будет указывать библиотеке seaborn условие покраски столбцов в зеленый или красный цвет по признаку
 df_vg_year_palette = {'Above_Threshold' : 'green',
                       'Below_Threshold' : 'red'}
 
+# Создать холст визуализации с шириной 900 и длиной 300 пикселей
 fig4, ax4 = plt.subplots(figsize=(9,3))
+
+# Задать тип и настройки визуализации:
+# Тип - barplot (столбчатая диаграмма), ось x - "Year", ось y - "Global_Sales", покраска зависит от признака "sales_threshold",
+# Палитра - df_vg_year_palette (красный и зеленый по признаку), легенда (описание цветов) - отключить
+
 sns.barplot(df_vg_year, x="Year", y="Global_Sales", hue = "sales_threshold", palette = df_vg_year_palette, legend = False)
+
+# Передать форматирование значений оси y как краткое форматирование (100 000 000 -> 100 M)
 ax4.yaxis.set_major_formatter(FuncFormatter(millions_formatter))
 
+# Обозначить алгоритм описания оси y. Передаем сюда массив numpy с начальным значением 0, конечным 37, шагом 5 (от первого до 37 столбца с шагом пять, столбцов 37, так как 2017 - 1980 = 37)
 ax4.set_xticks(np.arange(0, 37,5))
-plt.rcParams.update({'font.size': 10,
-                     'axes.titlesize': 15,
-                     'axes.labelsize': 10,
-                     'xtick.labelsize': 8,
-                     'ytick.labelsize': 8})
 
-ax4.set(xlabel = None)
-ax4.set(ylabel = 'Копий продано')
+# Установить параметры визуализации по умолчанию
+plt.rcParams.update({'font.size': 10, # размер шрифта общий
+                     'axes.titlesize': 15, # размер шрифта названия холста
+                     'axes.labelsize': 10, # размер шрифта названий осей
+                     'xtick.labelsize': 8, # размер шрифта описания оси x
+                     'ytick.labelsize': 8}) # размер шрифта описания оси y.
 
+ax4.set(xlabel = None) # Название оси x - отключить
+ax4.set(ylabel = 'Копий продано') # Название оси y - "Копий продано"
+
+# Передаем название холста (\n в строке python - перенос строки, fontsize - размер шрифта)
 plt.title('Продажи видеоигр 1980-2017 г. \n \n Основной пик продаж игр пришелся на 2000-2014 год, \n далее рынок платных видеоигр пошел на спад. \n', fontsize=11)
 ```
 ## 2. Какие игровые консоли наиболее прибыльны? Каков общий тренд их актуальности на рынке?
