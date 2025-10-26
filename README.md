@@ -143,6 +143,8 @@ PS2 - наиболее прибьльная консоль за все врем�
 
 <img src="images/df_vg_game_eu_2.png" alt="df_vg_game_eu_2.png" height="320"/>
 
+### Продажи в Японии
+
 5 из них - игры франшизы Pokemon.
 
 <img src="images/df_vg_game_jp_1.png" alt="df_vg_game_jp_1.png" height="320"/>
