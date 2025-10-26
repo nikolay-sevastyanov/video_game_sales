@@ -127,22 +127,27 @@ single_color_green = ['green'] # Список с единственной стр
 
 6. Преобразование данных, обработка пропусков, удаление дубликатов.
    
-   1. Преобразование данных   
+
+   1. Обработка пропусков
    ```python
-   # Столбцы "NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales", "Global_Sales" преобразуем из числа с 2 значениями после запятой в целочисленные значения, помножив их на 1 000 000 и изменяя тип данных внутри таблицы на int (целочисленные значения)
+   # Столбцы 'Year' и 'Publisher' имели пустые ячейки. Заполняем их "0"
+   
+   df_vg['Year'] = df_vg['Year'].fillna(0)
+   df_vg['Publisher'] = df_vg['Publisher'].fillna(0)
+   ```
+   2. Преобразование данных   
+   ```python
+   # Столбцы "NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales", "Global_Sales" преобразуем из числа с 2 значениями после запятой в целочисленные значения,
+   # помножив их на 1 000 000 и изменяя тип данных внутри таблицы на int (целочисленные значения)
+
+   # Столбцу 'Year' изменим тип данных из float(0) в int
    
    df_vg['NA_Sales'] = (df_vg['NA_Sales'] * 1000000).astype(int)
    df_vg['EU_Sales'] = (df_vg['EU_Sales'] * 1000000).astype(int)
    df_vg['JP_Sales'] = (df_vg['JP_Sales'] * 1000000).astype(int)
    df_vg['Other_Sales'] = (df_vg['Other_Sales'] * 1000000).astype(int)
    df_vg['Global_Sales'] = (df_vg['Global_Sales'] * 1000000).astype(int)
-   ```
-   2. Обработка пропусков
-   ```python
-   # Столбцы 'Year' и 'Publisher' имели пустые ячейки. Заполняем их "0"
-   
-   df_vg['Year'] = df_vg['Year'].fillna(0)
-   df_vg['Publisher'] = df_vg['Publisher'].fillna(0)
+   df_vg['Year'] = (df_vg['Year']).astype(int)
    ```
 
    3. Удаление дубликатов
