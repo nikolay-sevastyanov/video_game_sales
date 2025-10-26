@@ -149,3 +149,7 @@ PS2 - наиболее прибьльная консоль за все врем�
 
 <img src="images/df_vg_game_jp_1.png" alt="df_vg_game_jp_1.png" height="320"/>
 
+8 из них - игры издателя Nintendo.
+
+<img src="images/df_vg_game_jp_2.png" alt="df_vg_game_jp_2.png" height="320"/>
+
