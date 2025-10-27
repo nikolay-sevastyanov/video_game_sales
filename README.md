@@ -661,8 +661,6 @@ for ax10_axes in ax10.axes.flat:
     ax10_axes.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1))
 
 plt.title('Годовые продажи в Европе, распределение по жанрам во времени. \n Имеют глобальный характер. \n', fontsize=12)
-plt.ylabel('Продажи')
-plt.xlabel('Год')
 
 ax10.set(xlabel = 'Год')
 ax10.set(ylabel = 'Доля рынка')
