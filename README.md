@@ -722,7 +722,37 @@ ax12.set(xlabel = 'Год')
 ax12.set(ylabel = 'Доля рынка')
 ```
 
+Рынок платных видеоигр продолжает уменьшаться,  будучи поддерживаемым играми жанров "шутер" и "экшн".
+
 <img src="images/df_vg_year_genre.png" alt="df_vg_year_genre.png" height="320"/>
+
+Блок кода:
+```python
+# Создадим холст 900х300 пикселей
+fig13, ax13 = plt.subplots(figsize=(9,3))
+
+# Создадим столбчатую диаграмму с накоплениек (histplot),
+# Данные - "df_genre_year_filtered", ось x - 'Year', категория, котролирующая свет столбцов - 'Genre', категория, котролирующая высоту столбцов - 'Global_Sales_sum',
+# Палитра - 'pastel' (встроенная в seaborn), прозрачность - отключена, накопление столбцов друг на друге - включено
+sns.histplot(data = df_genre_year_filtered,
+             x = 'Year',
+             hue = 'Genre',
+             weights='Global_Sales_sum',
+             bins=37,
+             palette='pastel',
+             alpha = 1,
+             multiple='stack')
+
+plt.ticklabel_format(style='plain', axis='y')
+ax13.yaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+ax13.set(xlabel = 'Год')
+ax13.set(ylabel = 'Мировые продажи')
+
+plt.title('Годовые продажи видеоигр по жанрам, 1980-2017 г. \n \n Рынок платных видеоигр продолжает уменьшаться, \n будучи поддерживаемым играми жанров "шутер" и "экшн".',fontsize=10)
+
+sns.move_legend(ax13, "upper left", bbox_to_anchor=(1, 1))
+```
 
 ## 4. Какие игровые консоли наиболее ценны для потребителей с точки зрения цена-качество?
 
