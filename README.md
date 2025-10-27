@@ -1005,11 +1005,11 @@ for i, patch in enumerate(ax18.patches):
 ax18.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
 
 # Установим настройки визуализации по умолчанию
-plt.rcParams.update({'font.size': 10,          # General font size
-                     'axes.titlesize': 15,    # Title font size
-                     'axes.labelsize': 10,     # X and Y label font size
-                     'xtick.labelsize': 7,    # X-axis tick label font size
-                     'ytick.labelsize': 8})   # Y-axis tick label font size
+plt.rcParams.update({'font.size': 10,      
+                     'axes.titlesize': 15, 
+                     'axes.labelsize': 10,    
+                     'xtick.labelsize': 7,   
+                     'ytick.labelsize': 8})  
 
 # Передадим названия для осей x и y
 ax18.set(xlabel = 'Копий продано')
