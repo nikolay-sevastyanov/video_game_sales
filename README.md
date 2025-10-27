@@ -916,6 +916,8 @@ plt.title('Продажи видеоигр по издателям, 1980-2017 г
 plt.show()
 ```
 
+Издатель Nintendo в 1980-2017 г. занимал совокупно 20% рынка.
+
 <img src="images/df_publishers_5.png" alt="df_publishers_5.png" height="320"/>
 
 Блок кода:
