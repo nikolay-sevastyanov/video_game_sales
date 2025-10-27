@@ -515,7 +515,7 @@ df_vg_max_other_sales_genre = df_vg_max_other_sales_genre[df_vg_max_other_sales_
 df_vg_max_other_sales_genre = df_vg_max_other_sales_genre.assign(relevant_sales_amount = df_vg_max_other_sales_genre['Other_Sales'])
 
 
-# 5 датафрейм - "df_vg_global_other_sales_genre" - группировка 'Genre' по суммам 'Global_Sales',
+# 5 датафрейм - "df_vg_global_global_sales_genre" - группировка 'Genre' по суммам 'Global_Sales',
 # Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
 df_vg_max_global_sales_genre = df_vg.groupby(['Genre'])['Global_Sales'].sum().to_frame().reset_index()
 # Оставляем только строку с макс. значением по 'Global_Sales'
