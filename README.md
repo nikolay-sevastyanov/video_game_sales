@@ -869,6 +869,58 @@ plt.rcParams.update({'font.size': 10,
 <img src="images/df_publishers_3.png" alt="df_publishers_3.png" height="305"/>
 
 ```python
+# Создаем датафрейм "df_vg_publishers", передаем в него df_vg.
+# Группируем в нем суммы по 'NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales' по признаку 'Publisher'
+# Сортируем по 'Global_Sales' по убыванию
+df_vg_publishers = (df_vg.groupby('Publisher', as_index=False)[['NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales']].sum()
+                    .sort_values(by='Global_Sales', ascending=False))
+
+# Удаляем строки "df_vg_publishers", где 'Publisher' = 0
+df_vg_publishers = df_vg_publishers[df_vg_publishers['Publisher'] != 0]
+
+# Создадим датафрейм "df_vg_publishers_filtered"
+df_vg_publishers_filtered = df_vg_publishers[df_vg_publishers['Global_Sales'] > 100000000]
+
+# Создадим холст 900х300 пикселе
+fig16, ax16 = plt.subplots(figsize=(9,3))
+sns.barplot(df_vg_publishers_filtered.head(10),
+            x="Global_Sales",
+            y="Publisher",
+            orient="h")
+
+# Создадим функцию покраски столбцов, передадим один зеленый цвет
+for i, patch in enumerate(ax16.patches):
+    if i < len(single_color_green):
+        patch.set_facecolor(single_color_green[i])
+    else:
+        patch.set_facecolor('gray')
+
+# Форматируем ось x (100 000 000 -> 100 M)
+ax16.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+# Установим настройки визуализации по умолчанию
+plt.rcParams.update({'font.size': 10,          # General font size
+                     'axes.titlesize': 15,    # Title font size
+                     'axes.labelsize': 10,     # X and Y label font size
+                     'xtick.labelsize': 7,    # X-axis tick label font size
+                     'ytick.labelsize': 8})   # Y-axis tick label font size
+
+# Передадим названия для осей x и y
+ax16.set(xlabel = 'Копий продано')
+ax16.set(ylabel = None)
+
+# Передадим название диаграммы
+plt.title('Продажи видеоигр по издателям, 1980-2017 г.\n Самый успешный издатель всех времен - Nintendo \n', fontsize=12)
+
+# Необязательная функция
+plt.show()
+```
+
+<img src="images/df_publishers_5.png" alt="df_publishers_5.png" height="320"/>
+
+Блок кода:
+
+```python
 # создаем датафрейм "df_sales_percentage", передадим в него строки "df_vg_publishers"
 df_sales_percentage = df_vg_publishers
 
@@ -916,8 +968,6 @@ ax17.xaxis.set_major_formatter(mticker.PercentFormatter(decimals=0))
 ax17.set(xlabel = 'Доля рынка')
 ax17.set(ylabel = None)
 ```
-
-<img src="images/df_publishers_5.png" alt="df_publishers_5.png" height="320"/>
 
 Рынок платных видеоигр сильно консолидирован.
 5 самых успешных издателей имеют долю рынка 51%
