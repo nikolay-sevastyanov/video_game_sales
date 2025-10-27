@@ -868,6 +868,55 @@ plt.rcParams.update({'font.size': 10,
 
 <img src="images/df_publishers_3.png" alt="df_publishers_3.png" height="305"/>
 
+```python
+# создаем датафрейм "df_sales_percentage", передадим в него строки "df_vg_publishers"
+df_sales_percentage = df_vg_publishers
+
+# Создадим 5 вычисляемых столбцов - 'NAMarketCap%', 'EUMarketCap%', 'JPMarketCap%', 'OtherMarketCap%', 'GlobalMarketCap%'
+# Это проценты от суммы продаж в каждом рынке, переведенные в значения 0-1 -> 0-100, изменен тип данных в int (числа после запятой нам не интересны)
+df_sales_percentage['NAMarketCap%'] =  ((df_sales_percentage['NA_Sales'] / df_sales_percentage['NA_Sales'].sum()) * 100).astype(int)
+df_sales_percentage['EUMarketCap%'] =  ((df_sales_percentage['EU_Sales'] / df_sales_percentage['EU_Sales'].sum()) * 100).astype(int)
+df_sales_percentage['JPMarketCap%'] =  ((df_sales_percentage['JP_Sales'] / df_sales_percentage['JP_Sales'].sum()) * 100).astype(int)
+df_sales_percentage['OtherMarketCap%'] =  ((df_sales_percentage['Other_Sales'] / df_sales_percentage['Other_Sales'].sum()) * 100).astype(int)
+df_sales_percentage['GlobalMarketCap%'] =  ((df_sales_percentage['Global_Sales'] / df_sales_percentage['Global_Sales'].sum()) * 100).astype(int)
+
+# создаем датафрейм "df_sales_percentage_filtered" и передаем в него
+# cтроки, в которых 'GlobalMarketCap%' > 1
+df_sales_percentage_filtered = df_sales_percentage[df_sales_percentage['GlobalMarketCap%']>1]
+
+# Создаем холст 900х300 пикселей
+fig17, ax17 = plt.subplots(figsize=(9,3))
+
+# Создаем столбчатую диаграмму (barplot), передаем в нее данные:
+# Данные - первые 10 строк "df_sales_percentage_filtered", ось x - 'GlobalMarketCap%', ось y - 'Publisher', тип - горизонтальный
+sns.barplot(data = df_sales_percentage_filtered.head(10),
+            x = 'GlobalMarketCap%',
+            y = 'Publisher',
+            orient='h')
+
+# Создадим функцию покраски столбцов, передадим один зеленый цвет
+for i, patch in enumerate(ax17.patches):
+    if i < len(single_color_green):
+        patch.set_facecolor(single_color_green[i])
+    else:
+        patch.set_facecolor('gray')
+
+# Установим настройки визуализации по умолчанию
+plt.rcParams.update({'font.size': 10,
+                     'axes.titlesize': 15,
+                     'axes.labelsize': 10,
+                     'xtick.labelsize': 12,
+                     'ytick.labelsize': 10})
+
+# Передадим название диаграммы
+plt.title('Общая доля рынка, которую занимал издатель за 1980-2017 г. \n \n Nintendo за 1980-2017 г. совокупно занимала 20% рынка. \n',fontsize=12)
+ax17.xaxis.set_major_formatter(mticker.PercentFormatter(decimals=0))
+
+# Передадим названия для осей x и y
+ax17.set(xlabel = 'Доля рынка')
+ax17.set(ylabel = None)
+```
+
 <img src="images/df_publishers_5.png" alt="df_publishers_5.png" height="320"/>
 
 Рынок платных видеоигр сильно консолидирован.
