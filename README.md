@@ -1021,9 +1021,47 @@ plt.title('Продажи видеоигр по издателям, 1980-2017 г
 # Необязательная функция
 plt.show()
 ```
+5 самых успешных издателей имеют общую долю рынка - 51%
 
 <img src="images/df_publishers_6.png" alt="df_publishers_6.png" height="320"/>
 
+Блок кода:
+```python
+# Создадим холст 900х300 пикселей
+fig19, ax19 = plt.subplots(figsize=(9,3))
+
+# Создаем столбчатую диаграмму (barplot), передаем в нее данные:
+# Данные - первые 10 строк из "df_sales_percentage_filtered", ось x - "GlobalMarketCap%'", ось y - Publisher", отображение - горизонтальное
+sns.barplot(data = df_sales_percentage_filtered.head(10),
+            x = 'GlobalMarketCap%',
+            y = 'Publisher',
+            orient='h')
+
+ # Создадим функцию покраски столбцов, передадим уникальный список из 5 зеленых цветов
+for i, patch in enumerate(ax19.patches):
+    if i < len(five_green_colors):
+        patch.set_facecolor(five_green_colors[i])
+    else:
+        patch.set_facecolor('gray')
+
+
+# Установим настройки визуализации по умолчанию
+plt.rcParams.update({'font.size': 10,
+                     'axes.titlesize': 15,
+                     'axes.labelsize': 10,
+                     'xtick.labelsize': 12,
+                     'ytick.labelsize': 10})
+
+# Передадим название диаграммы
+plt.title('Общая доля рынка, которую занимал издатель за 1980-2017 г. \n \n Рынок видеоигр - крайне консолидирован. \n 5 самых успешных издателей занимают 51% рынка. \n',fontsize=12)
+
+# Форматируем ось x (100 000 000 -> 100 M)
+ax19.xaxis.set_major_formatter(mticker.PercentFormatter(decimals=0))
+
+# Передадим названия для осей x и y
+ax19.set(xlabel = 'Доля рынка')
+ax19.set(ylabel = None)
+```
 
 В Северной Америке, Японии и Европе самый успешный издатель за 1980-2017 г. - Nintendo. В остальных регионах - Electronic Arts.
 
