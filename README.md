@@ -366,6 +366,60 @@ plt.show()
 
 <img src="images/df_year_platform_1.png" alt="df_year_platform_1.png" height="300"/>
 
+Блок кода:
+```python
+# Создаем датафрейм "df_vg_year_platform" - группировка сумм NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales' по парам 'Year', Platform
+# Группировка продаж игр на платформе по годам, сортировка по 'Global_Sales' по убывающей
+df_vg_year_platform = (df_vg.groupby(['Year','Platform'], as_index=False)[['NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales']].sum()
+                       .sort_values(by='Global_Sales', ascending=False))
+
+# Удаляем строки, где 'Year' = 0, так как здесь они не нужны
+df_vg_year_platform = df_vg_year_platform[df_vg_year_platform['Year'] != 0]
+
+# Создаем "df_vg_year_platform_filter_var" -  переменную фильтрации для датафрейма "df_vg_year_platform_filtered"
+df_vg_year_platform_filter_var = 60000000
+
+# Создаем датафрейм "df_vg_year_platform_filtered" - строки "df_vg_year_platform", в которых 'Global_Sales' > df_vg_year_platform_filter_var
+df_vg_year_platform_filtered = df_vg_year_platform[df_vg_year_platform['Global_Sales'] > df_vg_year_platform_filter_var]
+
+# Создаем холст визуализации 900х300 пикселей
+fig5, ax5 = plt.subplots(figsize=(9,3))
+
+# создаем histplot - столбчатую диаграмму с множеством категорий
+# данные из "df_vg_year_platform_filtered", ось x - 'Year', категория контроля цвета - 'Platform', значения ширины монолитных столбиков - "Global_Sales",
+# Столбиков 37 (сколько и лет в данных с 1980 по 2017 г.), палитра - 'pastel' (встроенная в seaborn),
+# alpha = 1 (прозрачность отключена), multiple = 'stack' - класть столбцы категории друг на друга
+sns.histplot(data = df_vg_year_platform_filtered,
+             x = 'Year',
+             hue = 'Platform',
+             weights='Global_Sales',
+             bins=37,
+             palette='pastel',
+             alpha = 1,
+             multiple='stack')
+
+# Форматируем ось y (100 000 000 -> 100 M)
+ax5.yaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+# Передаем название холста (эту строку после декларации графика можно вызывать в любом месте перед выводом)
+plt.title('Годовые продажи видеоигр по платформам (консолям), 1980-2017 г. \n \n Пик продаж игр на платформу наступает в течение 5 лет после ее выхода. \n', fontsize=10)
+
+# Передаем названия осей x и y
+ax5.set(xlabel = None)
+ax5.set(ylabel = 'Копий продано')
+
+# Сдвигаем названия категорий (окрашиваемые значения) вправо
+sns.move_legend(ax5, "upper left", bbox_to_anchor=(1, 1))
+
+# Устанавливаем настройки холста по умолчанию
+plt.rcParams.update({'font.size': 10,        
+                     'axes.titlesize': 15,  
+                     'axes.labelsize': 10,     
+                     'xtick.labelsize': 8,   
+                     'ytick.labelsize': 8})
+
+# plt.show() для seaborn - необязательная команда
+```
 
 Наиболее успешная пара "жанр - платформа" - "PS3 - "Экшн" "
 
