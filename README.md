@@ -754,6 +754,52 @@ plt.title('Годовые продажи видеоигр по жанрам, 198
 sns.move_legend(ax13, "upper left", bbox_to_anchor=(1, 1))
 ```
 
+Самый успешный жанр игр - "экшн"
+
+<img src="images/vg_genre.png" alt="vg_genre" height="320"/> 
+
+Блок кода:
+```python
+# создадим датафрейм "df_vg_genres", сгруппируем по суммы 'NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales' по 'Genre',
+# отсортируем по 'Global_Sales' по убыванию
+df_vg_genres = df_vg.groupby('Genre', as_index=False[['NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales']].sum()
+   .sort_values(by='Global_Sales', ascending=False) # перенес строку для удобства чтения. Перенос строки тут не нужен.
+
+# Создадим холст 900х300 пикселей
+fig15, ax15 = plt.subplots(figsize=(9,3))
+
+# Создадим столбчатую диаграмму (barplot), передедив в нее:
+# данные - первые 10 строк "df_vg_genres", ось x - 'Global_Sales', ось y - 'Genre', тип отображения -0 горизонтальный
+sns.barplot(df_vg_genres.head(10), x="Global_Sales", y="Genre",orient='h')
+
+# Форматируем ось x (100 000 000 -> 100 M)
+ax15.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+# Создадим функцию покраски столбцов, передадим 1 зеленый цвет
+for i, patch in enumerate(ax15.patches):
+    if i < len(single_color_green):
+        patch.set_facecolor(single_color_green[i])
+    else:
+        patch.set_facecolor('gray')
+
+# Установим настройки диаграммы по умолчанию
+plt.rcParams.update({'font.size': 10,
+                     'axes.titlesize': 15,
+                     'axes.labelsize': 10,
+                     'xtick.labelsize': 8,
+                     'ytick.labelsize': 8})
+
+# Передадим названия осей x и y
+ax15.set(xlabel = 'Копий продано')
+ax15.set(ylabel = None)
+
+# Передадим название диаграммы
+plt.title('Продажи видеоигр по жанрам, 1980-2017 г.\n \n Самый успешный жанр в мире - экшн. \n', fontsize=11)
+
+# Необязательно
+plt.show()
+```
+
 ## 4. Какие игровые консоли наиболее ценны для потребителей с точки зрения цена-качество?
 
 Для геймеров наилучшее цена-качество у платформ Nintendo DS и PC.
