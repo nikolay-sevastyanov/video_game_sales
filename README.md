@@ -727,7 +727,7 @@ ax12.set(ylabel = 'Доля рынка')
 
 Для геймеров наилучшее цена-качество у платформ Nintendo DS и PC.
 
-<img src="images/df_platform_use_1.png" alt="df_platform_use_1.png" height="320"/>
+<img src="images/df_vg_year_genre.png" alt="df_vg_year_genre.png" height="320"/>
 
 
 ## 5. Какие издатели имеют наибольшее влияние на развитие рынка видеоигр?
