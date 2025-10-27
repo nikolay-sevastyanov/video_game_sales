@@ -425,6 +425,44 @@ plt.rcParams.update({'font.size': 10,
 
 <img src="images/df_platform_genre.png" alt="df_platform_genre.png" height="320"/>
 
+Блок кода: 
+```python
+# Создаем датафрейм "df_platform_genre" - группировка пар значений 'Platform', 'Genre' по суммам'Global_Sales'
+# Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу)
+# Сортируем по 'Global_Sales' по убыванию, обновляем индекс
+df_platform_genre = df_vg.groupby(['Platform', 'Genre'])['Global_Sales'].sum().to_frame().sort_values(by='Global_Sales', ascending=False).reset_index()
+
+# Создаем текстовый столбец 'Platform_Genre', который будет брать значение из 'Platform' и 'Genre' и объединять их одной ячейкой (для визуализации)
+df_platform_genre['Platform_Genre'] = df_platform_genre['Platform'] + ' ' + df_platform_genre['Genre']
+
+# Создаем холст визуализации 900х300 пикселей
+fig6, ax6 = plt.subplots(figsize=(9,3))
+
+# Создаем barplot (столбчатую диаграмму)
+# Данные - первые 10 строк "df_platform_genre", ось y - 'Platform_Genre', ось x - 'Global_Sales', тип отображения - горизонтальный
+sns.barplot(data = df_platform_genre.head(10),
+            y = 'Platform_Genre',
+            x = 'Global_Sales',
+            orient = 'h')
+
+# Передаем названия осей x и y
+ax6.set(xlabel = 'Продано копий')
+ax6.set(ylabel = 'Платформа, жанр')
+
+# Создаем функцию покраски, передаем уникальный список (первый столбец - зеленый)
+for i, patch in enumerate(ax6.patches):
+    if i < len(single_color_green):
+        patch.set_facecolor(single_color_green[i])
+    else:
+        # Handle cases where there are more bins than custom colors
+        patch.set_facecolor('gray')
+
+# Форматируем ось y (100 000 000 -> 100 M)
+ax6.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+# Передаем название холста 
+plt.title('Продажи игр в разрезе "Консоль - Жанр игры". \n \n Самая успешная пара - PS3 и жанр "экшн" \n', fontsize = 10)
+```
 
 ## 3. В чем основные отличия целевых аудиторий разных стран? Какие жанры игр они предпочитают?
 
