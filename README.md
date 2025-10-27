@@ -724,7 +724,7 @@ ax12.set(ylabel = 'Доля рынка')
 
 Рынок платных видеоигр продолжает уменьшаться,  будучи поддерживаемым играми жанров "шутер" и "экшн".
 
-<img src="images/df_vg_year_genre)1.png" alt="df_vg_year_genre_1.png" height="320"/>
+<img src="images/df_vg_year_genre1.png" alt="df_vg_year_genre_1.png" height="320"/>
 
 Блок кода:
 ```python
