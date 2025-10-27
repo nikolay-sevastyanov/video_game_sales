@@ -965,6 +965,8 @@ plt.rcParams.update({'font.size': 10,
 
 # Передадим название диаграммы
 plt.title('Общая доля рынка, которую занимал издатель за 1980-2017 г. \n \n Nintendo за 1980-2017 г. совокупно занимала 20% рынка. \n',fontsize=12)
+
+# Форматируем ось x (100 000 000 -> 100 M)
 ax17.xaxis.set_major_formatter(mticker.PercentFormatter(decimals=0))
 
 # Передадим названия для осей x и y
@@ -976,6 +978,49 @@ ax17.set(ylabel = None)
 5 самых успешных издателей имеют долю рынка 51%
 
 <img src="images/df_publishers_4.png" alt="df_publishers_4.png" height="320"/>
+
+Блок кода: 
+```python
+# Создадим холст 900х300 пикселей
+fig18, ax18 = plt.subplots(figsize=(9,3))
+
+# Создаем столбчатую диаграмму (barplot), передаем в нее данные:
+# Данные - первые 10 строк из "df_vg_publishers_filtered", ось x - "Global_Sales", ось y - Publisher", отображение - горизонтальное
+sns.barplot(df_vg_publishers_filtered.head(10),
+            x="Global_Sales",
+            y="Publisher",
+            orient="h")
+
+Уникальный список, где (первые) 5 цветов - зеленые
+five_green_colors = ['green','green','green','green','green']
+
+# Создадим функцию покраски столбцов, передадим уникальный список
+for i, patch in enumerate(ax18.patches):
+    if i < len(five_green_colors):
+        patch.set_facecolor(five_green_colors[i])
+    else:
+        patch.set_facecolor('gray')
+
+# Форматируем ось x (100 000 000 -> 100 M)
+ax18.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+# Установим настройки визуализации по умолчанию
+plt.rcParams.update({'font.size': 10,          # General font size
+                     'axes.titlesize': 15,    # Title font size
+                     'axes.labelsize': 10,     # X and Y label font size
+                     'xtick.labelsize': 7,    # X-axis tick label font size
+                     'ytick.labelsize': 8})   # Y-axis tick label font size
+
+# Передадим названия для осей x и y
+ax18.set(xlabel = 'Копий продано')
+ax18.set(ylabel = None)
+
+# Передадим название диаграммы
+plt.title('Продажи видеоигр по издателям, 1980-2017 г. \n \n 5 самых успешных издателей имеют общую долю рынка - 51% \n', fontsize=12)
+
+# Необязательная функция
+plt.show()
+```
 
 <img src="images/df_publishers_6.png" alt="df_publishers_6.png" height="320"/>
 
