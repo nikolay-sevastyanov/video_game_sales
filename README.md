@@ -609,11 +609,33 @@ ax8.set(ylabel = 'Доля рынка')
 
 ### Тренды Северной Америки 
 
-
 В Северной Америке тренды жанров схожи с глобальными.
 
 <img src="images/df_year_genre_na_dist_1.png" alt="df_year_genre_na_dist_1.png" height="320"/>
 
+Блок кода:
+```python
+# Здесь по аналогии с диаграммой по годовым мировым продажам, но в 'weights' мы передаем 'NA_Sales_sum'
+
+ax9 = sns.displot(data = df_genre_year_filtered,
+            x = 'Year',
+            hue = 'Genre',
+            weights='NA_Sales_sum',
+            multiple="fill",
+            bins = 35,
+            height=5, aspect=2,
+            stat='percent')
+
+for ax9_axes in ax9.axes.flat:
+    ax9_axes.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1))
+
+plt.title('Годовые продажи в Северной Америке, распределение по жанрам во времени. \n Имеют глобальный характер. \n', fontsize=12)
+plt.ylabel('Продажи')
+plt.xlabel('Год')
+
+ax9.set(xlabel = 'Год')
+ax9.set(ylabel = 'Доля рынка')
+```
 
 ### Тренды Европы  
 
