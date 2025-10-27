@@ -326,7 +326,7 @@ plt.show()
 Блок кода (2): 
 ```python
 # Создаем холст с разрешением 500х500 пикселей
-fig31, ax31 = plt.subplots(figsize=(5,5))
+fig4, ax4 = plt.subplots(figsize=(5,5))
 
 # Создаем визуализацию. Здесь используем раннее визуализированный датафрейм, просто на этом холсте он будет показан слегка по другому.
 sns.barplot(df_vg_platform_filtered.head(10), x="Global_Sales", y="Platform", orient='h')
@@ -335,14 +335,14 @@ sns.barplot(df_vg_platform_filtered.head(10), x="Global_Sales", y="Platform", or
 six_colors_green = ['green','green','green','green','green','green']
 
 # Создаем функцию покраски, передаем уникальный список
-for i, patch in enumerate(ax31.patches):
+for i, patch in enumerate(ax4.patches):
     if i < len(six_colors_green):
         patch.set_facecolor(six_colors_green[i])
     else:
         patch.set_facecolor('gray')
 
 # Форматируем ось x (100 000 000 -> 100 M)
-ax31.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
+ax4.xaxis.set_major_formatter(FuncFormatter(millions_formatter))
 
 # Настраеваем график по умолчанию
 plt.rcParams.update({'font.size': 10,          # General font size
@@ -352,8 +352,8 @@ plt.rcParams.update({'font.size': 10,          # General font size
                      'ytick.labelsize': 8})   # Y-axis tick label font size
 
 # Передаем названия осей x и y
-ax31.set(xlabel = 'Копий продано')
-ax31.set(ylabel = None)
+ax4.set(xlabel = 'Копий продано')
+ax4.set(ylabel = None)
 
 # Передаем название холста
 plt.title('Продажи видеоигр по платформам (консолям), 1980-2017 г. \n \n Аркадные (социальные) консоли являются самыми успешными. \n', fontsize=11)
