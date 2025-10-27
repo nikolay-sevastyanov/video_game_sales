@@ -726,9 +726,9 @@ ax12.set(ylabel = 'Доля рынка')
 
 ## 4. Какие игровые консоли наиболее ценны для потребителей с точки зрения цена-качество?
 
-<img src="images/df_platform_use_1.png" alt="df_platform_use_1.png" height="320"/>
-
 Для геймеров наилучшее цена-качество у платформ Nintendo DS и PC.
+
+<img src="images/df_platform_use_1.png" alt="df_platform_use_1.png" height="320"/>
 
 Блок кода:
 ```python
