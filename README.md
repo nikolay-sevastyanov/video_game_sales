@@ -270,7 +270,7 @@ ax2.yaxis.set_major_formatter(FuncFormatter(millions_formatter))
 ax2.set(xlabel = None)
 ax2.set(ylabel = 'Продано копий')
 
-№ Передаем название диаграммы
+# Передаем название диаграммы
 plt.title('Распределение годовых продаж видеоигр по регионам, 1980-2017 г. \n', fontsize=12)
 ```
 
