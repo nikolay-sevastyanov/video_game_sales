@@ -756,7 +756,7 @@ sns.move_legend(ax13, "upper left", bbox_to_anchor=(1, 1))
 
 Самый успешный жанр игр - "экшн"
 
-<img src="images/vg_genre.png" alt="vg_genre" height="320"/> 
+<img src="images/vg_genre_2.png" alt="vg_genre_2.png" height="320"/> 
 
 Блок кода:
 ```python
@@ -769,7 +769,7 @@ df_vg_genres = df_vg.groupby('Genre', as_index=False[['NA_Sales','EU_Sales','JP_
 fig15, ax15 = plt.subplots(figsize=(9,3))
 
 # Создадим столбчатую диаграмму (barplot), передедив в нее:
-# данные - первые 10 строк "df_vg_genres", ось x - 'Global_Sales', ось y - 'Genre', тип отображения -0 горизонтальный
+# данные - первые 10 строк "df_vg_genres", ось x - 'Global_Sales', ось y - 'Genre', тип отображения - горизонтальный
 sns.barplot(df_vg_genres.head(10), x="Global_Sales", y="Genre",orient='h')
 
 # Форматируем ось x (100 000 000 -> 100 M)
