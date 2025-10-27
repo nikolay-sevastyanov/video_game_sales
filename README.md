@@ -669,7 +669,6 @@ ax10.set(ylabel = 'Доля рынка')
 
 ### Тренды Японии
 
-
 В Японии тренды жанров схожи с глобальными, но жанром топ-1 является "RPG".
 
 <img src="images/df_year_genre_jp_dist_1.png" alt="df_year_genre_jp_dist_1.png" height="320"/>
@@ -682,6 +681,26 @@ ax10.set(ylabel = 'Доля рынка')
 
 <img src="images/df_year_genre_other_dist_1.png" alt="df_year_genre_other_dist_1.png" height="320"/>
 
+Блок кода:
+```python
+# Здесь по аналогии с диаграммой по годовым мировым продажам, но в 'weights' мы передаем 'JP_Sales_sum'
+ax11 = sns.displot(data = df_genre_year_filtered,
+            x = 'Year',
+            hue = 'Genre',
+            weights='JP_Sales_sum',
+            multiple="fill",
+            bins = 35,
+            height=5, aspect=2,
+            stat='percent')
+
+for ax11_axes in ax11.axes.flat:
+    ax11_axes.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1))
+
+plt.title('Годовые продажи в Японии, распределение по жанрам во времени.\n  Преобладает доля жанра "RPG". \n \n', fontsize=12)
+
+ax11.set(xlabel = 'Год')
+ax11.set(ylabel = 'Доля рынка')
+```
 
 ## 4. Какие игровые консоли наиболее ценны для потребителей с точки зрения цена-качество?
 
