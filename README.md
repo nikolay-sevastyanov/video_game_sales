@@ -578,7 +578,7 @@ ax7.set(ylabel = 'Копий продано')
 
 В мировых масштабах преобладает и растет доля жанров игр: "экшн", "спорт", "головоломка". Снижается даля жанров "платформер", "стратегия", "головоломка".
 
-<img src="images/df_year_genre_na_dist_1.png" alt="df_year_genre_na_dist_1.png" height="320"/>
+<img src="images/df_year_genre_na_dist_1.png" alt="df_year_genre_global_dist_1.png" height="320"/>
 
 Блок кода:
 ```python
