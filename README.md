@@ -473,7 +473,7 @@ plt.title('Продажи игр в разрезе "Консоль - Жанр и
 
 Блок кода:
 ```python
-# Результирующие датафрейм - "бутерброд" из 5 датафреймов, строк с максимальными значениями по регионам.
+# Результирующий датафрейм - "бутерброд" из 5 датафреймов, строк с максимальными значениями по регионам.
 
 # 1 датафрейм - "df_vg_max_na_sales_genre" - группировка 'Genre' по суммам 'NA_Sales',
 # Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
@@ -484,6 +484,7 @@ df_vg_max_na_sales_genre = df_vg_max_na_sales_genre[df_vg_max_na_sales_genre['NA
 # Здесь я использую "assign" а не " = ", так как возникает ошибка "SettingWithCopyWarning"
 df_vg_max_na_sales_genre = df_vg_max_na_sales_genre.assign(relevant_sales_amount = df_vg_max_na_sales_genre['NA_Sales'])
 
+
 # 2 датафрейм - "df_vg_max_eu_sales_genre" - группировка 'Genre' по суммам 'EU_Sales',
 # Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
 df_vg_max_eu_sales_genre = df_vg.groupby(['Genre'])['EU_Sales'].sum().to_frame().reset_index()
@@ -492,6 +493,7 @@ df_vg_max_eu_sales_genre = df_vg_max_eu_sales_genre[df_vg_max_eu_sales_genre['EU
 # Выносим 'EU_Sales' в отдельный столбец - 'relevant_sales_amount'
 # Здесь я использую "assign" а не " = ", так как возникает ошибка "SettingWithCopyWarning"
 df_vg_max_eu_sales_genre = df_vg_max_eu_sales_genre.assign(relevant_sales_amount = df_vg_max_eu_sales_genre['EU_Sales'])
+
 
 # 3 датафрейм - "df_vg_max_jp_sales_genre" - группировка 'Genre' по суммам 'JP_Sales',
 # Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
@@ -502,6 +504,7 @@ df_vg_max_jp_sales_genre = df_vg_max_jp_sales_genre[df_vg_max_jp_sales_genre['JP
 # Здесь я использую "assign" а не " = ", так как возникает ошибка "SettingWithCopyWarning"
 df_vg_max_jp_sales_genre = df_vg_max_jp_sales_genre.assign(relevant_sales_amount = df_vg_max_jp_sales_genre['JP_Sales'])
 
+
 # 4 датафрейм - "df_vg_max_other_sales_genre" - группировка 'Genre' по суммам 'Other_Sales',
 # Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
 df_vg_max_other_sales_genre = df_vg.groupby(['Genre'])['Other_Sales'].sum().to_frame().reset_index()
@@ -511,6 +514,7 @@ df_vg_max_other_sales_genre = df_vg_max_other_sales_genre[df_vg_max_other_sales_
 # Здесь я использую "assign" а не " = ", так как возникает ошибка "SettingWithCopyWarning"
 df_vg_max_other_sales_genre = df_vg_max_other_sales_genre.assign(relevant_sales_amount = df_vg_max_other_sales_genre['Other_Sales'])
 
+
 # 5 датафрейм - "df_vg_global_other_sales_genre" - группировка 'Genre' по суммам 'Global_Sales',
 # Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
 df_vg_max_global_sales_genre = df_vg.groupby(['Genre'])['Global_Sales'].sum().to_frame().reset_index()
@@ -519,6 +523,7 @@ df_vg_max_global_sales_genre = df_vg_max_global_sales_genre[df_vg_max_global_sal
 # Выносим 'Global_Sales' в отдельный столбец - 'relevant_sales_amount'
 # Здесь я использую "assign" а не " = ", так как возникает ошибка "SettingWithCopyWarning"
 df_vg_max_global_sales_genre = df_vg_max_global_sales_genre.assign(relevant_sales_amount = df_vg_max_global_sales_genre['Global_Sales'])
+
 
 # Объединяем 5 датафреймов в один (один над другим)
 df_vg_max_genre = pd.concat([df_vg_max_na_sales_genre,
