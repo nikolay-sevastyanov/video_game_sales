@@ -673,14 +673,6 @@ ax10.set(ylabel = 'Доля рынка')
 
 <img src="images/df_year_genre_jp_dist_1.png" alt="df_year_genre_jp_dist_1.png" height="320"/>
 
-
-### Тренды остальных регионов
-
-
-В остальных регионах тренды жанров  схожи с глобальными.
-
-<img src="images/df_year_genre_other_dist_1.png" alt="df_year_genre_other_dist_1.png" height="320"/>
-
 Блок кода:
 ```python
 # Здесь по аналогии с диаграммой по годовым мировым продажам, но в 'weights' мы передаем 'JP_Sales_sum'
@@ -701,6 +693,15 @@ plt.title('Годовые продажи в Японии, распределен
 ax11.set(xlabel = 'Год')
 ax11.set(ylabel = 'Доля рынка')
 ```
+
+
+### Тренды остальных регионов
+
+
+В остальных регионах тренды жанров  схожи с глобальными.
+
+<img src="images/df_year_genre_other_dist_1.png" alt="df_year_genre_other_dist_1.png" height="320"/>
+
 
 ## 4. Какие игровые консоли наиболее ценны для потребителей с точки зрения цена-качество?
 
