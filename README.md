@@ -724,9 +724,11 @@ ax12.set(ylabel = 'Доля рынка')
 
 <img src="images/df_vg_year_genre.png" alt="df_vg_year_genre.png" height="320"/>
 
-
 ## 4. Какие игровые консоли наиболее ценны для потребителей с точки зрения цена-качество?
 
+<img src="images/df_platform_use_1.png" alt="df_platform_use_1.png" height="320"/>
+
+Для геймеров наилучшее цена-качество у платформ Nintendo DS и PC.
 
 Блок кода:
 ```python
@@ -782,10 +784,6 @@ plt.rcParams.update({'font.size': 10,
                      'xtick.labelsize': 8,   
                      'ytick.labelsize': 8})   
 ```
-
-
-Для геймеров наилучшее цена-качество у платформ Nintendo DS и PC.
-
 
 ## 5. Какие издатели имеют наибольшее влияние на развитие рынка видеоигр?
 
