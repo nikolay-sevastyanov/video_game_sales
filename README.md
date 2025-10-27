@@ -991,7 +991,7 @@ sns.barplot(df_vg_publishers_filtered.head(10),
             y="Publisher",
             orient="h")
 
-Уникальный список, где (первые) 5 цветов - зеленые
+# Уникальный список, где (первые) 5 цветов - зеленые
 five_green_colors = ['green','green','green','green','green']
 
 # Создадим функцию покраски столбцов, передадим уникальный список
