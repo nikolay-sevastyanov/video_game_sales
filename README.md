@@ -467,11 +467,107 @@ plt.title('Продажи игр в разрезе "Консоль - Жанр и
 
 ### Глобальные тренды 
 
-
 В Японии самый популярный жанр видеоигр - "RPG". В остальном мире - "экшн"
 
 <img src="images/df_vg_max_genre.png" alt="df_vg_max_genre.png" height="370"/>
 
+Блок кода:
+```python
+# Результирующие датафрейм - "бутерброд" из 5 датафреймов, строк с максимальными значениями по регионам.
+
+# 1 датафрейм - "df_vg_max_na_sales_genre" - группировка 'Genre' по суммам 'NA_Sales',
+# Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
+df_vg_max_na_sales_genre = df_vg.groupby(['Genre'])['NA_Sales'].sum().to_frame().reset_index()
+# Оставляем только строку с макс. значением по 'NA_Sales'
+df_vg_max_na_sales_genre = df_vg_max_na_sales_genre[df_vg_max_na_sales_genre['NA_Sales'] == df_vg_max_na_sales_genre['NA_Sales'].max()]
+# Выносим 'NA_Sales' в отдельный столбец - 'relevant_sales_amount'
+# Здесь я использую "assign" а не " = ", так как возникает ошибка "SettingWithCopyWarning"
+df_vg_max_na_sales_genre = df_vg_max_na_sales_genre.assign(relevant_sales_amount = df_vg_max_na_sales_genre['NA_Sales'])
+
+# 2 датафрейм - "df_vg_max_eu_sales_genre" - группировка 'Genre' по суммам 'EU_Sales',
+# Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
+df_vg_max_eu_sales_genre = df_vg.groupby(['Genre'])['EU_Sales'].sum().to_frame().reset_index()
+# Оставляем только строку с макс. значением по 'EU_Sales'
+df_vg_max_eu_sales_genre = df_vg_max_eu_sales_genre[df_vg_max_eu_sales_genre['EU_Sales'] == df_vg_max_eu_sales_genre['EU_Sales'].max()]
+# Выносим 'EU_Sales' в отдельный столбец - 'relevant_sales_amount'
+# Здесь я использую "assign" а не " = ", так как возникает ошибка "SettingWithCopyWarning"
+df_vg_max_eu_sales_genre = df_vg_max_eu_sales_genre.assign(relevant_sales_amount = df_vg_max_eu_sales_genre['EU_Sales'])
+
+# 3 датафрейм - "df_vg_max_jp_sales_genre" - группировка 'Genre' по суммам 'JP_Sales',
+# Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
+df_vg_max_jp_sales_genre = df_vg.groupby(['Genre'])['JP_Sales'].sum().to_frame().reset_index()
+# Оставляем только строку с макс. значением по 'JP_Sales'
+df_vg_max_jp_sales_genre = df_vg_max_jp_sales_genre[df_vg_max_jp_sales_genre['JP_Sales'] == df_vg_max_jp_sales_genre['JP_Sales'].max()]
+# Выносим 'JP_Sales' в отдельный столбец - 'relevant_sales_amount'
+# Здесь я использую "assign" а не " = ", так как возникает ошибка "SettingWithCopyWarning"
+df_vg_max_jp_sales_genre = df_vg_max_jp_sales_genre.assign(relevant_sales_amount = df_vg_max_jp_sales_genre['JP_Sales'])
+
+# 4 датафрейм - "df_vg_max_other_sales_genre" - группировка 'Genre' по суммам 'Other_Sales',
+# Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
+df_vg_max_other_sales_genre = df_vg.groupby(['Genre'])['Other_Sales'].sum().to_frame().reset_index()
+# Оставляем только строку с макс. значением по 'Other_Sales'
+df_vg_max_other_sales_genre = df_vg_max_other_sales_genre[df_vg_max_other_sales_genre['Other_Sales'] == df_vg_max_other_sales_genre['Other_Sales'].max()]
+# Выносим 'Other_Sales' в отдельный столбец - 'relevant_sales_amount'
+# Здесь я использую "assign" а не " = ", так как возникает ошибка "SettingWithCopyWarning"
+df_vg_max_other_sales_genre = df_vg_max_other_sales_genre.assign(relevant_sales_amount = df_vg_max_other_sales_genre['Other_Sales'])
+
+# 5 датафрейм - "df_vg_global_other_sales_genre" - группировка 'Genre' по суммам 'Global_Sales',
+# Переводим из pd.Series объекта (столбца) в pd.DataFrame объект (таблицу), обновляем индекс
+df_vg_max_global_sales_genre = df_vg.groupby(['Genre'])['Global_Sales'].sum().to_frame().reset_index()
+# Оставляем только строку с макс. значением по 'Global_Sales'
+df_vg_max_global_sales_genre = df_vg_max_global_sales_genre[df_vg_max_global_sales_genre['Global_Sales'] == df_vg_max_global_sales_genre['Global_Sales'].max()]
+# Выносим 'Global_Sales' в отдельный столбец - 'relevant_sales_amount'
+# Здесь я использую "assign" а не " = ", так как возникает ошибка "SettingWithCopyWarning"
+df_vg_max_global_sales_genre = df_vg_max_global_sales_genre.assign(relevant_sales_amount = df_vg_max_global_sales_genre['Global_Sales'])
+
+# Объединяем 5 датафреймов в один (один над другим)
+df_vg_max_genre = pd.concat([df_vg_max_na_sales_genre,
+                                  df_vg_max_eu_sales_genre,
+                                  df_vg_max_jp_sales_genre,
+                                  df_vg_max_other_sales_genre,
+                                  df_vg_max_global_sales_genre],
+                                 axis = 0)
+
+# Удаляем ненужные столбцы 'NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales' (для визуализации не обязательны)
+df_vg_max_genre = df_vg_max_genre.drop(['NA_Sales','EU_Sales','JP_Sales','Other_Sales','Global_Sales'], axis = 1)
+
+# Создаем столбец 'Category', в который передаем значения 'na_sales_max', 'eu_sales_max','jp_sales_max','other_sales_max','global_sales_max'
+df_vg_max_genre['Category'] = ['na_sales_max','eu_sales_max', 'jp_sales_max', 'other_sales_max', 'global_sales_max']
+
+# Сортируем строки по 'relevant_sales_amount' по убывающей
+df_vg_max_genre = df_vg_max_genre.sort_values(by = 'relevant_sales_amount', ascending = False)
+
+# Создаем столбец 'category_genre', который будет объединять сначения столбцов 'Category' и 'Genre', также имеет в себе '\n', так как это более понятно для визуализации
+df_vg_max_genre['category_genre'] = df_vg_max_genre['Category'] + ' ' + '\n' +' ' + df_vg_max_genre['Genre']
+
+# Создаем холст визуализации 600х250 пикселей
+fig7, ax7 = plt.subplots(figsize=(6,2.5))
+
+# Создаем barplot (столбчатую диаграмму), данные - "df_vg_max_genre", ось x - 'category_genre', ось y - 'relevant_sales_amount', категория конроля окрашиваемых столбцов - 'Genre'
+sns.barplot(data = df_vg_max_genre,
+            x = 'category_genre',
+            y = 'relevant_sales_amount',
+            hue = 'Genre')
+
+# Устанавливаем настройки диаграммы по умолчанию
+plt.rcParams.update({'font.size': 10,        
+                     'axes.titlesize': 15,
+                     'axes.labelsize': 8,
+                     'xtick.labelsize': 8,
+                     'ytick.labelsize': 8})
+
+# Сдвигаем легенду (описание цветов окрашиваемых значений) вправо
+ax7_handles, ax7_labels = ax7.get_legend_handles_labels()
+plt.legend(handles=ax7_handles, labels=ax7_labels, loc='center left', bbox_to_anchor=(1, 0.5))
+plt.title('Продажи топ-1 жанров игр по регионам 1980-2017 г. \n \n В Японии самым популярным жанром игр был RPG. \n В Северной Америке, Европе и остальных регионах - экшн.',fontsize=12)
+
+# Форматируем ось y (100 000 000 -> 100 M)
+ax7.yaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+# Передаем названия осей x и y
+ax7.set(xlabel = 'Регион, жанр топ-1')
+ax7.set(ylabel = 'Копий продано')
+```
 
 ### Жанры в регионах
 
