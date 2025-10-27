@@ -702,6 +702,7 @@ ax11.set(ylabel = 'Доля рынка')
 
 <img src="images/df_year_genre_other_dist_1.png" alt="df_year_genre_other_dist_1.png" height="320"/>
 
+Блок кода: 
 ```python
 # Здесь по аналогии с диаграммой по годовым мировым продажам, но в 'weights' мы передаем 'Other_Sales_sum'
 ax12 = sns.displot(data = df_genre_year_filtered,
