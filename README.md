@@ -702,6 +702,25 @@ ax11.set(ylabel = 'Доля рынка')
 
 <img src="images/df_year_genre_other_dist_1.png" alt="df_year_genre_other_dist_1.png" height="320"/>
 
+```python
+# Здесь по аналогии с диаграммой по годовым мировым продажам, но в 'weights' мы передаем 'Other_Sales_sum'
+ax12 = sns.displot(data = df_genre_year_filtered,
+            x = 'Year',
+            hue = 'Genre',
+            weights='Other_Sales_sum',
+            multiple="fill",
+            bins = 37,
+            height=5, aspect=2,
+            stat='percent')
+
+for ax12_axes in ax12.axes.flat:
+    ax12_axes.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1))
+
+plt.title('Годовые продажи в остальных регионах, распределение по жанрам во времени. \n Имеют глобальный характер. \n', fontsize=12)
+
+ax12.set(xlabel = 'Год')
+ax12.set(ylabel = 'Доля рынка')
+```
 
 ## 4. Какие игровые консоли наиболее ценны для потребителей с точки зрения цена-качество?
 
