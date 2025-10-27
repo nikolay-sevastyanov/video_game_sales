@@ -242,8 +242,39 @@ plt.title('Продажи видеоигр 1980-2017 г. \n \n Основной 
 
 <img src="images/df_vg_regions_year_2.png" alt="df_vg_regions_year_2.png" height="320"/> 
 
-## 2. Какие игровые консоли наиболее прибыльны? Каков общий тренд их актуальности на рынке?
+Блок кода:
+```python
 
+# Создаем датафрейм "df_vg_regions_year" - группировка сумм: 'Global_Sales','NA_Sales','EU_Sales','JP_Sales','Other_Sales'
+# по категории 'Year' (динамика продаж по годами регионам)
+df_vg_regions_year = df_vg.groupby(['Year'])[['Global_Sales','NA_Sales','EU_Sales','JP_Sales','Other_Sales']].sum().reset_index()
+
+№ Удаляем строки с "0" в 'Year'
+df_vg_regions_year = df_vg_regions_year[(df_vg_regions_year['Year'] != 0)]
+
+# Создаем холст с разрешением 500х500 пикселей
+fig2, ax2 = plt.subplots(figsize=(5,5))
+
+# так как длс того чтобы lineplot (линейной диаграмме) передать несколько категорий, требуется longform - таблица, а не wideform, приводим к longform датафрейм
+# df_regions_year, индекс - 'Year', столбец категорий - 'Sales_Type' (новый), столбец значений - 'Sales_Amount' (новый)
+# Затем сортируем по 'Year' по убывающей
+df_vg_regions_year = df_vg_regions_year.melt(id_vars=['Year'], var_name='Sales_Type', value_name = 'Sales_Amount').sort_values(by='Year', ascending=False)
+
+# Создаем линейную диаграмму с осью x - 'Year', осью y - 'Sales_Amount', категорией данных для управления цветом линий - 'Sales_Type', данными из df_vg_regions_year
+sns.lineplot(x='Year',y='Sales_Amount', hue='Sales_Type', data = df_vg_regions_year)
+
+# форматируем ось y (100 000 000 -> 100 M)
+ax2.yaxis.set_major_formatter(FuncFormatter(millions_formatter))
+
+# Передаем названия осей в диаграмму
+ax2.set(xlabel = None)
+ax2.set(ylabel = 'Продано копий')
+
+№ Передаем название диаграммы
+plt.title('Распределение годовых продаж видеоигр по регионам, 1980-2017 г. \n', fontsize=12)
+```
+
+## 2. Какие игровые консоли наиболее прибыльны? Каков общий тренд их актуальности на рынке?
 
 PS2 - наиболее прибьльная консоль за все время. Аркадные, позволяющие играть в кооперативе, консоли собираюют больше продаж, чем остальные.
 
