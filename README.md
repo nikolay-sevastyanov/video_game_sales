@@ -165,6 +165,27 @@ single_color_green = ['green'] # Список с единственной стр
    3     4         Wii Sports Resort      Wii  2009        Sports  Nintendo  15750000  11010000   3280000      2960000      33000000
    4     5  Pokemon Red/Pokemon Blue       GB  1996  Role-Playing  Nintendo  11270000   8890000  10220000      1000000      31370000
    ```
+
+7. Подготовка датафрейма df_genre_year (жанры по годам) для будущих преобразований и визуализаций.
+```python
+# создаем датафрейм "df_genre_year", который будет агрегировать суммы по продажам в регионах по годам,
+# выводя агрегационные вычисляемые столбцы: "Global_Sales_sum","NA_Sales_sum", "EU_Sales_sum", "Other_Sales_sum",
+# затем полученному датафрейму возвращаем индекс по умолчанию (при агрегации мы получаем многоуровневый индекс таблицы, который нам не нужен)
+df_genre_year = df_vg.groupby(['Genre','Year']).agg(
+Global_Sales_sum = ('Global_Sales', 'sum'),
+NA_Sales_sum = ('NA_Sales', 'sum'),
+EU_Sales_sum = ('EU_Sales', 'sum'), JP_Sales_sum = ('JP_Sales', 'sum'),
+Other_Sales_sum = ('Other_Sales', 'sum'),)
+.reset_index()
+
+# Удаляем из df_genre_year строки, где 'Year' = 0
+df_genre_year = df_genre_year[df_genre_year['Year'] != 0]
+
+# Создаем df_genre_year_filtered - датафрейм, который берет строки df_genre_year и фильтрует их, оставляя 'Global_Sales_sum' >  5 000 000,
+# для наглядности визуализации
+df_genre_year_filtered = df_genre_year[df_genre_year['Global_Sales_sum'] > 5000000]
+```
+
 ## 1. Что просходит с рынком видеоигр на данный момент?
 
 
