@@ -211,7 +211,7 @@ df_vg_year_palette = {'Above_Threshold' : 'green',
                       'Below_Threshold' : 'red'}
 
 # Создать холст визуализации с шириной 900 и длиной 300 пикселей
-fig4, ax4 = plt.subplots(figsize=(9,3))
+fig1, ax1 = plt.subplots(figsize=(9,3))
 
 # Задать тип и настройки визуализации:
 # Тип - barplot (столбчатая диаграмма), ось x - "Year", ось y - "Global_Sales", покраска зависит от признака "sales_threshold",
@@ -219,10 +219,10 @@ fig4, ax4 = plt.subplots(figsize=(9,3))
 sns.barplot(df_vg_year, x="Year", y="Global_Sales", hue = "sales_threshold", palette = df_vg_year_palette, legend = False)
 
 # Передать форматирование значений оси y как краткое форматирование (100 000 000 -> 100 M)
-ax4.yaxis.set_major_formatter(FuncFormatter(millions_formatter))
+ax1.yaxis.set_major_formatter(FuncFormatter(millions_formatter))
 
 # Обозначить алгоритм описания оси y. Передаем сюда массив numpy с начальным значением 0, конечным 37, шагом 5 (от первого до 37 столбца с шагом пять, столбцов 37, так как 2017 - 1980 = 37)
-ax4.set_xticks(np.arange(0, 37,5))
+ax1.set_xticks(np.arange(0, 37,5))
 
 # Установить параметры визуализации по умолчанию
 plt.rcParams.update({'font.size': 10, # размер шрифта общий
@@ -231,8 +231,8 @@ plt.rcParams.update({'font.size': 10, # размер шрифта общий
                      'xtick.labelsize': 8, # размер шрифта описания оси x
                      'ytick.labelsize': 8}) # размер шрифта описания оси y.
 
-ax4.set(xlabel = None) # Название оси x - отключить
-ax4.set(ylabel = 'Копий продано') # Название оси y - "Копий продано"
+ax1.set(xlabel = None) # Название оси x - отключить
+ax1.set(ylabel = 'Копий продано') # Название оси y - "Копий продано"
 
 # Передаем название холста ("\n" в строке python - перенос строки, fontsize - размер шрифта)
 plt.title('Продажи видеоигр 1980-2017 г. \n \n Основной пик продаж игр пришелся на 2000-2014 год, \n далее рынок платных видеоигр пошел на спад. \n', fontsize=11)
