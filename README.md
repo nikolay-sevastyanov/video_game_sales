@@ -729,6 +729,60 @@ ax12.set(ylabel = 'Доля рынка')
 
 <img src="images/df_vg_year_genre.png" alt="df_vg_year_genre.png" height="320"/>
 
+Блок кода:
+```python
+# Создадим новый датафрейм "df_platform_use" и передадим в него строки из "df_vg_year_platform"
+df_platform_use = df_vg_year_platform
+
+# Создадим вычисляемый столбец 'platform_min_year', который будет выводить минимальное значение 'Year' в категории 'Platform' (похоже на оконную функцию sql PARTITION BY)
+df_platform_use['platform_min_year'] = df_platform_use.groupby(['Platform'])['Year'].transform("min")
+
+# Создадим вычисляемый столбец 'platform_max_year', который будет выводить максимальное значение 'Year' в категории 'Platform' (похоже на оконную функцию sql PARTITION BY)
+df_platform_use['platform_max_year'] = df_platform_use.groupby(['Platform'])['Year'].transform("max")
+
+# Создадим вычисляемый столбец, который будет выводить разницу между 'platform_max_year' и 'platform_min_year' - срок актуалности консоли в годах
+df_platform_use['platform_time_in_market'] = (df_platform_use['platform_max_year'] - df_platform_use['platform_min_year'])
+
+# Сгруппируем максимальное значение 'platform_time_in_market' по категории 'Platform'
+df_platform_use = df_platform_use.groupby(['Platform'], as_index=False)['platform_time_in_market'].max()
+
+# Создадим датафрейм "df_platform_use_filtered" , в котором отфильтруем результирующие строки, оставив только те, где platform_time_in_market' > 5,
+# отсортируем по 'platform_time_in_market' по убывающей
+df_platform_use_filtered = df_platform_use[df_platform_use['platform_time_in_market']>5].sort_values('platform_time_in_market', ascending=False)
+
+# Создадим холст 900х300 пикселей
+fig14, ax14 = plt.subplots(figsize=(9,3))
+
+# Создадим barplot (столбчатую диаграмму), передадим в нее 10 первых строк "df_platform_use_filtered", ось x - 'platform_time_in_market', ось y - 'Platform', отображение - горизонтальное
+sns.barplot(data = df_platform_use_filtered.head(10),
+            x = 'platform_time_in_market',
+            y = 'Platform',
+            orient='h')
+
+# Создадим уникальный список цветов, который окрасит первые 2 столбца в зеленый
+double_color_green = ['green', 'green']
+
+# Создадим функцию покраски столбцов, передадим уникальный список
+for i, patch in enumerate(ax14.patches):
+    if i < len(double_color_green):
+        patch.set_facecolor(double_color_green[i])
+    else:
+        patch.set_facecolor('gray')
+
+# Передадим названия для осей x и y
+ax14.set(ylabel = None)
+ax14.set(xlabel = 'Срок (годы)')
+
+# Передадим название диаграммы
+plt.title('Срок, сколько лет на платформу (консоль) выходили игры \n \n Для геймеров наилучшее отношение цена-качество у платформ DS и PC \n',fontsize=12)
+
+# Установим настройки визуализации по умолчанию
+plt.rcParams.update({'font.size': 10,        
+                     'axes.titlesize': 10,  
+                     'axes.labelsize': 10,   
+                     'xtick.labelsize': 8,   
+                     'ytick.labelsize': 8})   
+```
 
 ## 5. Какие издатели имеют наибольшее влияние на развитие рынка видеоигр?
 
